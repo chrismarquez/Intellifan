@@ -6,6 +6,7 @@
         "alwaysStrict": true,
         "outDir": "dist/",
         "sourceMap": true,
+        "allowJs": true,
         "watch": true
     },
     "include": [
