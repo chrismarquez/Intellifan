@@ -1,0 +1,11 @@
+{
+  "name": "intellifan",
+  "version": "1.0.0",
+  "description": "An embedded application to control an IR fan",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Christopher Salvador Márquez Alvarez",
+  "license": "ISC"
+}
