@@ -6,6 +6,7 @@ export default class Pin {
 
     public constructor(pin: number) {
         this.pin = pin;
+        Gpio.setup(this.pin);
     }
 
     public async read(): Promise<boolean> {
@@ -20,8 +21,21 @@ export default class Pin {
         });
     }
 
-    public async write(): Promise<void> {
-
+    public async write(value: boolean): Promise<void> {
+        return new Promise<void>((resolve: () => void, reject: (reason?: any) => void) => {
+            Gpio.write(this.pin, value, (err: Error) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve();
+                }
+            });
+        });
     }
 
+    /** @param {ms} The number of milliseconds between on and off */
+    public async pulse(ms: number): Promise<void> {
+        await this.write(true);
+        setTimeout(async () => await this.write(false), ms);
+    }
 }
