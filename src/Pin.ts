@@ -1,12 +1,12 @@
-import Gpio from "rpi-gpio"
+import Gpio = require("rpi-gpio")
 
-export default class Pin {
+export class Pin {
 
     private pin: number;
 
     public constructor(pin: number) {
         this.pin = pin;
-        Gpio.setup(this.pin);
+        Gpio.setup(pin);
     }
 
     public async read(): Promise<boolean> {
